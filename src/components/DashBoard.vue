@@ -35,11 +35,11 @@ const updateUser = (updatedUser: User) => {
     <h1 text-3xl font-semibold mb-6>管理ダッシュボード</h1>
 
     <div flex="~ col" gap-4 mb-6 p-4 bg-white shadow-md rounded-md w-96>
-      <h2 text-xl font-semibold mb-2>現在のユーザー情報</h2>
+      <h2 text-xl font-semibold>現在のユーザー情報</h2>
 
-      <div class="flex justify-center mt-4">
+      <div flex justify-center mt-4>
         <img
-          :src="user.avatar || 'https://i.pravatar.cc/150?img=default'"
+          :src="user.avatar"
           alt="Avatar"
           class="w-24 h-24 rounded-full border-2 border-gray-300 shadow-md"
         />
