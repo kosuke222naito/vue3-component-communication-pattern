@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import type { Ref } from "vue";
 import type { User } from "@/types";
 
 const props = defineProps<{ user: User }>();
@@ -8,7 +9,7 @@ const emit = defineEmits<{
   "update-user": [updatedUser: User];
 }>();
 
-const localUser = ref<User>({ ...props.user });
+const localUser: Ref<User> = ref({ ...props.user });
 
 watch(props.user, newUser => {
   localUser.value = { ...newUser };

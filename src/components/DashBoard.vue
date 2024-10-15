@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import type { Ref } from "vue";
 import type { User } from "@/types";
 import UserProfileEdit from "@/components/UserProfileEdit.vue";
 
@@ -9,7 +10,7 @@ const user = ref<User>({
   avatar: "https://i.pravatar.cc/150?img=3",
 });
 
-const successMessage = ref<string | null>(null);
+const successMessage: Ref<string | null> = ref(null);
 
 const updateUser = (updatedUser: User) => {
   user.value = { ...updatedUser };
@@ -39,7 +40,7 @@ const updateUser = (updatedUser: User) => {
       </p>
     </div>
 
-    <UserProfileEdit :user="user" @update-user="updateUser" />
+    <UserProfileEdit :user @update-user="updateUser" />
 
     <p v-if="successMessage" mt-4 text-green-600>
       {{ successMessage }}
