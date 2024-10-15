@@ -13,6 +13,14 @@ const user: Ref<User> = ref({
 const successMessage: Ref<string | null> = ref(null);
 
 const updateUser = (updatedUser: User) => {
+  if (
+    user.value.name === updatedUser.name &&
+    user.value.email === updatedUser.email &&
+    user.value.avatar === updatedUser.avatar
+  ) {
+    return;
+  }
+
   user.value = { ...updatedUser };
   successMessage.value = "プロフィールが更新されました。";
 
@@ -26,14 +34,18 @@ const updateUser = (updatedUser: User) => {
   <div flex="~ col" items-center p-6 bg-gray-50 min-h-screen>
     <h1 text-3xl font-semibold mb-6>管理ダッシュボード</h1>
 
-    <div mb-6 p-4 bg-white shadow-md rounded-md w-96>
+    <div flex="~ col" gap-4 mb-6 p-4 bg-white shadow-md rounded-md w-96>
       <h2 text-xl font-semibold mb-2>現在のユーザー情報</h2>
+
+      <div class="flex justify-center mt-4">
+        <img
+          :src="user.avatar || 'https://i.pravatar.cc/150?img=default'"
+          alt="Avatar"
+          class="w-24 h-24 rounded-full border-2 border-gray-300 shadow-md"
+        />
+      </div>
       <p>名前: {{ user.name }}</p>
       <p>メール: {{ user.email }}</p>
-      <p>
-        アバター:
-        <img :src="user.avatar" alt="Avatar" w-16 h-16 rounded-full mt-2 />
-      </p>
     </div>
 
     <UserProfileEdit :user @update-user="updateUser" />
