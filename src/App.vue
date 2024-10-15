@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import DashBoard from "@/components/DashBoard.vue";
+console.log("hogehoge");
 </script>
 
-<template>
-  <DashBoard />
-</template>
+<template>Hoge</template>
