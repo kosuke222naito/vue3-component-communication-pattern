@@ -4,7 +4,7 @@ import type { Ref } from "vue";
 import type { User } from "@/types";
 import UserProfileEdit from "@/components/UserProfileEdit.vue";
 
-const user = ref<User>({
+const user: Ref<User> = ref({
   name: "山田太郎",
   email: "yamada.taro@example.com",
   avatar: "https://i.pravatar.cc/150?img=3",
@@ -23,20 +23,16 @@ const updateUser = (updatedUser: User) => {
 </script>
 
 <template>
-  <div flex flex-col items-center p-6 bg-gray-50 min-h-screen>
+  <div flex="~ col" items-center p-6 bg-gray-50 min-h-screen>
     <h1 text-3xl font-semibold mb-6>管理ダッシュボード</h1>
 
-    <div class="mb-6 p-4 bg-white shadow-md rounded-md w-96">
-      <h2 class="text-xl font-semibold mb-2">現在のユーザー情報</h2>
+    <div mb-6 p-4 bg-white shadow-md rounded-md w-96>
+      <h2 text-xl font-semibold mb-2>現在のユーザー情報</h2>
       <p>名前: {{ user.name }}</p>
       <p>メール: {{ user.email }}</p>
       <p>
         アバター:
-        <img
-          :src="user.avatar"
-          alt="Avatar"
-          class="w-16 h-16 rounded-full mt-2"
-        />
+        <img :src="user.avatar" alt="Avatar" w-16 h-16 rounded-full mt-2 />
       </p>
     </div>
 
