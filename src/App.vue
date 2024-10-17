@@ -1,7 +1,11 @@
 <script setup lang="ts">
-import ProfilePage from "@/components/ProfilePage.vue";
+import { ref } from "vue";
+
+const hello = ref("Hello World!");
 </script>
 
 <template>
-  <ProfilePage />
+  <div grid h-full place-items-center>
+    <span text="green-600 9xl">{{ hello }}</span>
+  </div>
 </template>
