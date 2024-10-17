@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref } from "vue";
-const hello = ref("Hello World!");
+import ProfilePage from "@/components/ProfilePage.vue";
 </script>
 
 <template>
-  {{ hello }}
+  <ProfilePage />
 </template>
