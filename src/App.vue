@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import { ref } from "vue";
-
-const hello = ref("Hello World!");
+import TaskPage from "@/components/TaskPage.vue";
 </script>
 
 <template>
-  <div grid h-full place-items-center>
-    <span text="green-600 9xl">{{ hello }}</span>
+  <div grid place-items-center h-full>
+    <TaskPage />
   </div>
 </template>
